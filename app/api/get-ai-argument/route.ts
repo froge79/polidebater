@@ -54,7 +54,7 @@ export async function POST(request: Request) {
 
 		const fields = structureFields(structure)
 
-		const systemPrompt = `You are an assistant that participates in a formal political debate. You MUST respond with a single JSON object and NOTHING else (no markdown, no commentary, no explanation). The JSON object MUST contain exactly the following keys in this order: ${fields.join(", ")}. Each value must be a string containing the text for that part of the argument. Do not include any extra keys. For the warrant, make sure to cite your sources. when you cite a source or include a link, format it using HTML tags instead of Markdown — for example:
+		const systemPrompt = `You are an assistant that participates in a formal political debate. You MUST respond with a single JSON object and NOTHING else (no markdown, no commentary, no explanation). The JSON object MUST contain exactly the following keys in this order: ${fields.join(", ")}. Each value must be a string containing the text for that part of the argument. Do not include any extra keys. For the warrant, make sure to cite your sources. when you cite a source or include a link, format it using HTML tags instead of Markdown DO NOT INCLUDE ANY MARKDOWN. REPLACE IT WITH <a> elements ONLY— for example:
 <a href="https://example.com">source text</a>. Make sure to remove markdown formatting from any quoted text, and use <a> links only. 
 
 The debate topic is: "${topic}".
